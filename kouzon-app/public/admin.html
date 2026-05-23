@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Kouzon Admin Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Mulish:wght@400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Mulish',sans-serif;background:#f7f9fc;color:#1a2540;}
+.login-wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:1rem;}
+.login-card{background:#fff;border:1px solid #dde3f0;border-radius:16px;padding:2.5rem;width:100%;max-width:380px;text-align:center;box-shadow:0 8px 30px rgba(0,0,0,.08);}
+.login-card h1{font-family:'Syne',sans-serif;font-size:1.5rem;font-weight:800;color:#1a6cff;margin-bottom:.3rem;}
+.login-card p{font-size:.85rem;color:#6b7a99;margin-bottom:1.75rem;}
+.login-card input{width:100%;padding:.75rem 1rem;border:1.5px solid #dde3f0;border-radius:8px;font-family:'Mulish',sans-serif;font-size:.92rem;margin-bottom:.75rem;outline:none;}
+.login-card input:focus{border-color:#1a6cff;}
+.login-btn{width:100%;padding:.85rem;background:#1a6cff;color:#fff;border:none;border-radius:8px;font-family:'Syne',sans-serif;font-size:.88rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;}
+.login-btn:hover{background:#1558d6;}
+.err{color:#dc2626;font-size:.8rem;margin-top:.5rem;}
+
+/* DASHBOARD */
+#dashboard{display:none;}
+.top-bar{background:#fff;border-bottom:1px solid #dde3f0;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;}
+.top-bar h2{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:800;color:#1a2540;}
+.top-bar h2 span{color:#1a6cff;}
+.logout-btn{background:none;border:1px solid #dde3f0;padding:.4rem .85rem;border-radius:6px;font-size:.78rem;font-weight:600;color:#6b7a99;cursor:pointer;}
+.logout-btn:hover{color:#1a2540;border-color:#aac4ff;}
+.dash-inner{max-width:1200px;margin:0 auto;padding:2rem;}
+.stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:2rem;}
+.stat-box{background:#fff;border:1px solid #dde3f0;border-radius:12px;padding:1.5rem;text-align:center;}
+.stat-box .n{font-family:'Syne',sans-serif;font-size:2rem;font-weight:800;color:#1a6cff;}
+.stat-box .l{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:#6b7a99;margin-top:.25rem;}
+.filter-row{display:flex;gap:.75rem;margin-bottom:1.25rem;flex-wrap:wrap;}
+.filter-row input,.filter-row select{padding:.55rem .85rem;border:1px solid #dde3f0;border-radius:7px;font-family:'Mulish',sans-serif;font-size:.85rem;outline:none;}
+.filter-row input:focus,.filter-row select:focus{border-color:#1a6cff;}
+.filter-row input{flex:1;min-width:200px;}
+table{width:100%;border-collapse:collapse;background:#fff;border-radius:12px;overflow:hidden;border:1px solid #dde3f0;}
+thead th{padding:.75rem 1rem;font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#6b7a99;background:#f7f9fc;border-bottom:1px solid #dde3f0;text-align:left;}
+tbody tr{border-bottom:1px solid #f0f2f8;transition:background .15s;}
+tbody tr:hover{background:#f7f9fc;}
+tbody tr:last-child{border-bottom:none;}
+td{padding:.8rem 1rem;font-size:.84rem;color:#1a2540;}
+.badge{display:inline-block;padding:.2rem .6rem;border-radius:20px;font-size:.65rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;}
+.badge.paid{background:#d1fae5;color:#065f46;}
+.badge.pending{background:#fef9e3;color:#92400e;}
+.cv-btn{background:none;border:1px solid #dde3f0;padding:.3rem .65rem;border-radius:5px;font-size:.72rem;font-weight:600;color:#1a6cff;cursor:pointer;}
+.cv-btn:hover{background:#e8f0ff;}
+.no-cv{font-size:.75rem;color:#9ca3af;}
+.empty{text-align:center;padding:3rem;color:#6b7a99;font-size:.9rem;}
+.loading{text-align:center;padding:2rem;color:#6b7a99;}
+@media(max-width:700px){.stats-row{grid-template-columns:1fr 1fr;}.top-bar{padding:.85rem 1rem;}.dash-inner{padding:1rem;}table{font-size:.78rem;}td,thead th{padding:.6rem .75rem;}}
+</style>
+</head>
+<body>
+
+<!-- LOGIN -->
+<div class="login-wrap" id="login-wrap">
+  <div class="login-card">
+    <h1>Kouzon Admin</h1>
+    <p>Enter password to access the dashboard</p>
+    <input type="password" id="pwd" placeholder="Password" onkeydown="if(event.key==='Enter')login()"/>
+    <button class="login-btn" onclick="login()">Login →</button>
+    <div class="err" id="err"></div>
+  </div>
+</div>
+
+<!-- DASHBOARD -->
+<div id="dashboard">
+  <div class="top-bar">
+    <h2>Kouzon <span>Admin Dashboard</span></h2>
+    <button class="logout-btn" onclick="logout()">Logout</button>
+  </div>
+  <div class="dash-inner">
+    <div class="stats-row">
+      <div class="stat-box"><div class="n" id="s-total">0</div><div class="l">Total Applications</div></div>
+      <div class="stat-box"><div class="n" id="s-paid">0</div><div class="l">STK Initiated</div></div>
+      <div class="stat-box"><div class="n" id="s-cv">0</div><div class="l">CVs Attached</div></div>
+    </div>
+    <div class="filter-row">
+      <input type="text" id="search" placeholder="Search name, email, position..." oninput="renderTable()"/>
+      <select id="filter-status" onchange="renderTable()">
+        <option value="">All Status</option>
+        <option value="stk_initiated">STK Initiated</option>
+        <option value="pending">Pending</option>
+      </select>
+      <button class="logout-btn" onclick="loadApplicants()" style="color:#1a6cff;border-color:#aac4ff;">↻ Refresh</button>
+    </div>
+    <div id="table-wrap"><div class="loading">Loading applicants...</div></div>
+  </div>
+</div>
+
+<script>
+let pwd = '';
+let allApplicants = [];
+
+async function login() {
+  const p = document.getElementById('pwd').value;
+  if(!p){ document.getElementById('err').textContent='Enter password'; return; }
+  const res = await fetch('/api/admin/applicants',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({password:p})});
+  const data = await res.json();
+  if(!data.success){ document.getElementById('err').textContent='Wrong password'; return; }
+  pwd = p;
+  allApplicants = data.applicants || [];
+  document.getElementById('login-wrap').style.display='none';
+  document.getElementById('dashboard').style.display='block';
+  renderStats();
+  renderTable();
+}
+
+function logout(){ pwd=''; document.getElementById('login-wrap').style.display=''; document.getElementById('dashboard').style.display='none'; document.getElementById('pwd').value=''; }
+
+async function loadApplicants(){
+  const res = await fetch('/api/admin/applicants',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({password:pwd})});
+  const data = await res.json();
+  if(data.success){ allApplicants=data.applicants||[]; renderStats(); renderTable(); }
+}
+
+function renderStats(){
+  document.getElementById('s-total').textContent = allApplicants.length;
+  document.getElementById('s-paid').textContent  = allApplicants.filter(a=>a.paymentStatus==='stk_initiated').length;
+  document.getElementById('s-cv').textContent    = allApplicants.filter(a=>a.cvFile).length;
+}
+
+function renderTable(){
+  const q  = document.getElementById('search').value.toLowerCase();
+  const st = document.getElementById('filter-status').value;
+  let rows = allApplicants.filter(a=>{
+    const match = `${a.firstName} ${a.lastName} ${a.email} ${a.position} ${a.phone}`.toLowerCase().includes(q);
+    const statusMatch = st ? a.paymentStatus===st : true;
+    return match && statusMatch;
+  });
+  if(!rows.length){ document.getElementById('table-wrap').innerHTML='<div class="empty">No applicants found.</div>'; return; }
+  let html=`<table><thead><tr><th>#</th><th>Name</th><th>Phone</th><th>Position</th><th>Residence</th><th>Payment</th><th>Date</th><th>CV</th></tr></thead><tbody>`;
+  rows.forEach((a,i)=>{
+    const date = a.submittedAt ? new Date(a.submittedAt).toLocaleDateString('en-KE',{day:'numeric',month:'short',year:'numeric'}) : '—';
+    const badge = a.paymentStatus==='stk_initiated'
+      ? '<span class="badge paid">STK Sent</span>'
+      : '<span class="badge pending">Pending</span>';
+    const cvBtn = a.cvFile
+      ? `<button class="cv-btn" onclick="downloadCV('${a.id}')">Download</button>`
+      : '<span class="no-cv">None</span>';
+    html+=`<tr>
+      <td>${i+1}</td>
+      <td><strong>${a.firstName||''} ${a.lastName||''}</strong><br/><span style="font-size:.75rem;color:#6b7a99;">${a.email||''}</span></td>
+      <td>${a.phone||''}</td>
+      <td style="font-size:.8rem;">${a.position||''}</td>
+      <td>${a.residence||'—'}</td>
+      <td>${badge}</td>
+      <td style="font-size:.78rem;color:#6b7a99;">${date}</td>
+      <td>${cvBtn}</td>
+    </tr>`;
+  });
+  html+='</tbody></table>';
+  document.getElementById('table-wrap').innerHTML=html;
+}
+
+async function downloadCV(id){
+  const res = await fetch('/api/admin/cv',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({password:pwd,id})});
+  const data = await res.json();
+  if(!data.success||!data.cvFile){ alert('CV not found'); return; }
+  const link = document.createElement('a');
+  link.href = data.cvFile;
+  link.download = `CV_${data.name||id}.pdf`;
+  link.click();
+}
+</script>
+</body>
+</html>

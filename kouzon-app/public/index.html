@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Kouzon Kenya — Cruise Ship Jobs | Apply Now</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Mulish:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<style>
+:root {
+  --ocean: #1a6cff;
+  --teal: #00b89c;
+  --white: #ffffff;
+  --offwhite: #f7f9fc;
+  --text: #1a2540;
+  --muted: #6b7a99;
+  --border: #dde3f0;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Mulish',sans-serif;background:var(--offwhite);color:var(--text);overflow-x:hidden;}
+::-webkit-scrollbar{width:4px;}
+::-webkit-scrollbar-track{background:#f0f2f8;}
+::-webkit-scrollbar-thumb{background:var(--ocean);border-radius:2px;}
+.page{display:none;}.page.active{display:block;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0.9rem 3rem;background:rgba(255,255,255,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);}
+.nav-brand{display:flex;align-items:center;gap:0.6rem;cursor:pointer;}
+.nav-logo-mark{width:34px;height:34px;background:linear-gradient(135deg,var(--ocean),var(--teal));border-radius:7px;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-size:0.9rem;font-weight:800;color:#fff;}
+.nav-brand-text{font-family:'Syne',sans-serif;font-size:0.95rem;font-weight:700;color:var(--text);}
+.nav-brand-text span{color:var(--teal);}
+.nav-links{display:flex;gap:2rem;}
+.nav-links a{font-size:0.78rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);cursor:pointer;}
+.nav-links a:hover{color:var(--text);}
+.nav-apply-btn{background:var(--ocean);color:#fff;border:none;padding:0.55rem 1.4rem;font-family:'Syne',sans-serif;font-size:0.75rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;cursor:pointer;border-radius:6px;}
+.nav-apply-btn:hover{background:#1558d6;}
+
+/* HERO */
+.hero{position:relative;min-height:92vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:6rem 2rem 3rem;overflow:hidden;}
+.hero-bg{position:absolute;inset:0;background:linear-gradient(to bottom, rgba(10,22,40,0.45) 0%, rgba(10,22,40,0.55) 50%, rgba(10,22,40,0.85) 100%), url('https://images.unsplash.com/photo-1548574505-5e239809ee19?w=1600&q=80') center/cover no-repeat;}
+.hero-content{position:relative;z-index:1;}
+.event-pill{display:inline-flex;align-items:center;gap:0.5rem;background:rgba(255,255,255,0.14);border:1px solid rgba(255,255,255,0.3);border-radius:50px;padding:0.4rem 1.1rem;font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.9);margin-bottom:1.5rem;}
+.hero-title{font-family:'Syne',sans-serif;font-size:clamp(2.4rem,7vw,5.5rem);font-weight:800;line-height:1.0;color:#fff;margin-bottom:1.2rem;}
+.hero-title .ocean{background:linear-gradient(90deg,#5fb3ff,#7ee8d9);-webkit-background-clip:text;-webkit-text-fill-color:transparent;display:block;}
+.hero-title .kenya{color:#f5a623;display:block;}
+.hero-sub{font-size:clamp(0.9rem,1.8vw,1.05rem);color:rgba(255,255,255,0.75);max-width:480px;margin:0 auto 2rem;line-height:1.7;}
+.hero-actions{display:flex;gap:0.9rem;justify-content:center;flex-wrap:wrap;}
+.btn-primary{background:#fff;color:var(--ocean);border:none;padding:0.85rem 2rem;font-family:'Syne',sans-serif;font-size:0.82rem;font-weight:700;border-radius:7px;cursor:pointer;transition:all .2s;}
+.btn-primary:hover{background:#e8f0ff;transform:translateY(-2px);}
+.btn-ghost-light{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,0.35);padding:0.85rem 2rem;font-family:'Syne',sans-serif;font-size:0.82rem;font-weight:600;border-radius:7px;cursor:pointer;transition:all .2s;}
+.btn-ghost-light:hover{border-color:rgba(255,255,255,.7);}
+.scroll-cue{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:5px;}
+.scroll-cue span{font-size:0.58rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.4);}
+.scroll-dot{width:2px;height:28px;background:rgba(255,255,255,0.15);border-radius:1px;position:relative;overflow:hidden;}
+.scroll-dot::after{content:'';position:absolute;left:0;top:-10px;width:2px;height:10px;background:rgba(255,255,255,0.6);animation:dotScroll 1.8s infinite;}
+@keyframes dotScroll{from{top:-10px;}to{top:30px;}}
+
+/* STATS */
+.stats-bar{display:grid;grid-template-columns:repeat(4,1fr);background:#fff;border-bottom:1px solid var(--border);}
+.stat-item{padding:1.75rem 1.5rem;text-align:center;border-right:1px solid var(--border);}
+.stat-item:last-child{border-right:none;}
+.stat-num{font-family:'Syne',sans-serif;font-size:2.2rem;font-weight:800;color:var(--ocean);line-height:1;}
+.stat-label{font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);margin-top:0.3rem;}
+
+/* SECTION */
+.section{padding:5rem 3rem;max-width:1200px;margin:0 auto;}
+.section-tag{font-size:0.68rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--teal);margin-bottom:0.6rem;}
+.section-heading{font-family:'Syne',sans-serif;font-size:clamp(1.7rem,3vw,2.5rem);font-weight:800;margin-bottom:2rem;color:var(--text);}
+.section-heading em{color:var(--ocean);font-style:normal;}
+
+/* JOBS */
+.jobs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem;}
+.job-card{background:#fff;border:1px solid var(--border);border-radius:12px;overflow:hidden;cursor:pointer;transition:all 0.22s;display:flex;flex-direction:column;}
+.job-card:hover{transform:translateY(-4px);border-color:#aac4ff;box-shadow:0 10px 30px rgba(26,108,255,0.1);}
+.job-img-wrap{width:100%;height:150px;position:relative;overflow:hidden;}
+.job-img-wrap img{width:100%;height:100%;object-fit:cover;transition:transform 0.4s;}
+.job-card:hover .job-img-wrap img{transform:scale(1.06);}
+.job-dept-badge{position:absolute;top:8px;left:8px;background:rgba(26,108,255,0.9);font-size:0.58rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#fff;padding:0.25rem 0.6rem;border-radius:20px;}
+.job-info{padding:1rem;display:flex;flex-direction:column;flex:1;}
+.job-name{font-family:'Syne',sans-serif;font-size:0.95rem;font-weight:700;margin-bottom:0.2rem;color:var(--text);}
+.job-line{font-size:0.7rem;color:var(--teal);font-weight:600;}
+.btn-apply{margin-top:auto;padding-top:0.75rem;background:none;color:var(--ocean);border:1px solid var(--border);padding:0.48rem 0;margin-top:0.75rem;font-family:'Syne',sans-serif;font-size:0.7rem;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;cursor:pointer;border-radius:6px;width:100%;transition:all .18s;}
+.btn-apply:hover{background:var(--ocean);color:#fff;border-color:var(--ocean);}
+
+/* DETAIL PAGE */
+#page-detail .detail-hero{position:relative;min-height:45vh;display:flex;flex-direction:column;justify-content:flex-end;padding:7rem 3rem 3rem;}
+#page-detail .detail-hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;}
+#page-detail .detail-hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to top, rgba(10,22,40,1) 0%, rgba(10,22,40,0.3) 70%);}
+.detail-content{position:relative;z-index:1;}
+.detail-back{display:inline-flex;align-items:center;gap:0.4rem;font-size:0.75rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.5);cursor:pointer;margin-bottom:1rem;background:none;border:none;transition:color .2s;}
+.detail-back:hover{color:#fff;}
+.detail-dept{font-size:0.68rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--teal);margin-bottom:0.5rem;}
+.detail-title{font-family:'Syne',sans-serif;font-size:clamp(2rem,5vw,4rem);font-weight:800;line-height:1;color:#fff;margin-bottom:0.4rem;}
+.detail-company{font-size:0.92rem;color:rgba(255,255,255,0.55);}
+.detail-body{max-width:1200px;margin:0 auto;padding:3rem;display:grid;grid-template-columns:1fr 400px;gap:3rem;align-items:start;}
+.detail-main h3{font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:700;margin-bottom:0.75rem;color:var(--ocean);}
+.detail-main p{font-size:0.88rem;color:var(--muted);line-height:1.8;margin-bottom:1.25rem;}
+.detail-main ul{list-style:none;padding:0;margin-bottom:1.25rem;}
+.detail-main ul li{font-size:0.85rem;color:var(--muted);line-height:1.8;padding-left:1.1rem;position:relative;}
+.detail-main ul li::before{content:'→';position:absolute;left:0;color:var(--ocean);}
+
+/* APPLICATION CARD */
+.application-card{background:#fff;border:1px solid var(--border);border-radius:18px;padding:1.75rem;position:sticky;top:5.5rem;}
+.application-card h4{font-family:'Syne',sans-serif;font-size:1rem;font-weight:800;color:var(--ocean);margin-bottom:1rem;border-left:3px solid var(--ocean);padding-left:0.7rem;}
+.form-group{margin-bottom:0.9rem;}
+.form-group label{font-size:0.7rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:0.3rem;}
+.form-group input,.form-group select{width:100%;padding:0.65rem 0.85rem;border:1px solid var(--border);border-radius:8px;font-family:'Mulish',sans-serif;font-size:0.85rem;background:#fff;color:var(--text);transition:border-color .18s;}
+.form-group input:focus,.form-group select:focus{outline:none;border-color:var(--ocean);}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:0.8rem;margin-bottom:0.9rem;}
+.upload-option{display:flex;align-items:center;gap:0.7rem;background:var(--offwhite);padding:0.5rem 0.85rem;border-radius:6px;border:1px dashed var(--border);cursor:pointer;transition:all .18s;}
+.upload-option:hover{background:#fff;border-color:var(--ocean);}
+.upload-option i{font-size:0.9rem;color:var(--ocean);}
+.upload-option span{font-size:0.75rem;color:var(--muted);}
+#cv-label{font-weight:500;margin-left:0.3rem;color:var(--ocean);}
+.file-input{display:none;}
+.privacy-row{display:flex;align-items:flex-start;gap:0.5rem;font-size:0.8rem;color:var(--muted);}
+.privacy-row input{margin-top:2px;accent-color:var(--ocean);}
+.proceed-btn{width:100%;background:var(--ocean);color:#fff;border:none;padding:0.9rem;border-radius:9px;font-family:'Syne',sans-serif;font-size:0.88rem;font-weight:800;letter-spacing:0.06em;text-transform:uppercase;cursor:pointer;margin-top:1rem;transition:all .2s;}
+.proceed-btn:hover{background:#1558d6;transform:translateY(-1px);}
+
+/* PAYMENT MODAL */
+.payment-modal-overlay{display:none;position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,0.5);backdrop-filter:blur(4px);align-items:center;justify-content:center;padding:1rem;}
+.payment-modal-overlay.open{display:flex;}
+.payment-modal{background:#fff;border-radius:24px;width:100%;max-width:420px;padding:2rem;position:relative;animation:modalIn 0.25s ease;box-shadow:0 20px 50px rgba(0,0,0,0.2);}
+@keyframes modalIn{from{opacity:0;transform:scale(0.96);}to{opacity:1;transform:none;}}
+.payment-close{position:absolute;top:1rem;right:1rem;background:var(--offwhite);border:1px solid var(--border);width:30px;height:30px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:0.95rem;color:var(--muted);}
+.payment-close:hover{background:var(--border);}
+.payment-modal h2{font-family:'Syne',sans-serif;font-size:1.35rem;font-weight:800;color:var(--text);margin-bottom:0.2rem;}
+.modal-sub{font-size:0.8rem;color:var(--muted);margin-bottom:1.25rem;padding-bottom:1rem;border-bottom:1px solid var(--border);}
+.amount-box{background:linear-gradient(135deg,var(--ocean),#1255c8);border-radius:14px;padding:1.25rem;text-align:center;margin-bottom:1.25rem;}
+.amount-box .a-label{font-size:0.68rem;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:0.12em;}
+.amount-box .a-num{font-family:'Syne',sans-serif;font-size:2.2rem;font-weight:800;color:#fff;line-height:1.1;margin:.2rem 0;}
+.amount-box .a-note{font-size:0.7rem;color:rgba(255,255,255,0.65);}
+.phone-input-group{display:flex;align-items:center;border:1.5px solid var(--border);border-radius:40px;overflow:hidden;margin:.5rem 0 .75rem;}
+.phone-input-group:focus-within{border-color:var(--ocean);}
+.country-code{background:var(--offwhite);padding:0.7rem 1rem;font-weight:700;font-size:0.88rem;border-right:1px solid var(--border);color:var(--text);}
+.payment-phone-input{flex:1;border:none;padding:0.7rem 1rem;font-family:'Mulish',sans-serif;font-size:0.92rem;outline:none;color:var(--text);}
+.payment-status{font-size:0.78rem;padding:0.6rem 0.75rem;border-radius:8px;margin-bottom:0.75rem;display:none;line-height:1.5;}
+.payment-status.show{display:block;}
+.payment-status.pending{background:#fef9e3;color:#92400e;}
+.payment-status.success{background:#d1fae5;color:#065f46;}
+.payment-status.error{background:#fee2e2;color:#991b1b;}
+.pay-btn{width:100%;padding:0.9rem;background:var(--ocean);color:#fff;border:none;border-radius:40px;font-family:'Syne',sans-serif;font-size:0.9rem;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;transition:all .2s;}
+.pay-btn:hover{background:#1558d6;}
+.pay-btn:disabled{opacity:0.55;cursor:not-allowed;}
+.cancel-link{display:block;text-align:center;margin-top:0.85rem;font-size:0.8rem;color:var(--muted);cursor:pointer;background:none;border:none;width:100%;}
+.cancel-link:hover{color:var(--text);}
+.success-area{display:none;text-align:center;padding:1rem 0;}
+.success-area .s-icon{font-size:2.75rem;margin-bottom:0.5rem;}
+.success-area h3{font-family:'Syne',sans-serif;font-size:1.2rem;font-weight:800;color:var(--text);margin-bottom:0.5rem;}
+.success-area p{font-size:0.84rem;color:var(--muted);line-height:1.65;}
+
+/* HOW IT WORKS */
+.process-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:1.5rem;}
+.process-card{background:#fff;border:1px solid var(--border);border-radius:11px;padding:1.75rem;border-top:3px solid var(--ocean);}
+.process-num{font-family:'Syne',sans-serif;font-size:2.5rem;font-weight:800;color:#e8f0ff;line-height:1;margin-bottom:.75rem;-webkit-text-stroke:1.5px var(--ocean);}
+.process-title{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;margin-bottom:.5rem;color:var(--text);}
+.process-body{font-size:.83rem;color:var(--muted);line-height:1.7;}
+
+/* EVENT BANNER */
+.event-banner{margin:0 3rem 4rem;background:linear-gradient(135deg,var(--ocean),#1255c8 60%,var(--teal));border-radius:14px;padding:3rem 3.5rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;}
+.event-text .tag{font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.65);margin-bottom:.4rem;}
+.event-text h2{font-family:'Syne',sans-serif;font-size:clamp(1.5rem,2.8vw,2.2rem);font-weight:800;color:#fff;line-height:1.2;}
+.event-text p{color:rgba(255,255,255,.72);margin-top:.6rem;font-size:.88rem;line-height:1.65;max-width:420px;}
+.event-meta{text-align:center;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);border-radius:10px;padding:1.5rem 2.25rem;min-width:190px;}
+.event-meta .e-label{font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.65);margin-bottom:.3rem;}
+.event-meta .e-phone{font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:800;color:#fff;}
+.event-meta .e-fee{margin-top:.75rem;display:inline-block;background:rgba(255,255,255,.15);border-radius:20px;padding:.25rem .85rem;font-size:.65rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.85);}
+
+/* FOOTER */
+footer{background:#fff;border-top:1px solid var(--border);padding:2.5rem 3rem;display:grid;grid-template-columns:1fr auto auto;gap:3rem;align-items:start;}
+.footer-brand .f-name{font-family:'Syne',sans-serif;font-size:1rem;font-weight:800;margin-bottom:.4rem;color:var(--text);}
+.footer-brand .f-name span{color:var(--teal);}
+.footer-brand p{font-size:.8rem;color:var(--muted);line-height:1.65;max-width:260px;}
+.mlc{margin-top:.75rem;display:inline-flex;align-items:center;gap:.4rem;background:#e0f7f3;border:1px solid rgba(0,184,156,.25);border-radius:5px;padding:.3rem .75rem;font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);}
+.footer-col h4{font-family:'Syne',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--teal);margin-bottom:.85rem;}
+.footer-col p,.footer-col a{font-size:.8rem;color:var(--muted);line-height:1.85;text-decoration:none;display:block;}
+.footer-col a:hover{color:var(--text);}
+.footer-bottom{grid-column:1/-1;border-top:1px solid var(--border);padding-top:1.25rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem;}
+.footer-bottom p{font-size:.7rem;color:var(--muted);}
+
+@media(max-width:900px){
+  nav{padding:.85rem 1.5rem;}.nav-links{display:none;}
+  .stats-bar{grid-template-columns:repeat(2,1fr);}
+  .stats-bar .stat-item:nth-child(2){border-right:none;}
+  .stats-bar .stat-item:nth-child(3){border-top:1px solid var(--border);}
+  .section{padding:3rem 1.5rem;}
+  .detail-body{grid-template-columns:1fr;padding:1.5rem;}
+  .application-card{position:static;margin-top:2rem;}
+  .event-banner{margin:0 1.5rem 3rem;padding:2rem;}
+  .process-row{grid-template-columns:1fr;}
+  footer{grid-template-columns:1fr;padding:2rem 1.5rem;}
+  .form-row{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand" onclick="showHome()">
+    <div class="nav-logo-mark">K</div>
+    <div class="nav-brand-text">KOUZON <span>Kenya</span></div>
+  </div>
+  <div class="nav-links">
+    <a onclick="showHome()">Home</a>
+    <a onclick="scrollToJobs()">Jobs</a>
+  </div>
+  <button class="nav-apply-btn" onclick="scrollToJobs()">Apply Now →</button>
+</nav>
+
+<!-- HOME PAGE -->
+<div id="page-home" class="page active">
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <div class="event-pill">🚢 Cruise Ship Hiring · Nairobi 2026</div>
+      <h1 class="hero-title">Work at Sea.<span class="ocean">Dream Big.</span><span class="kenya">Kenya Rising.</span></h1>
+      <p class="hero-sub">Kouzon Corporation connects Kenyans to global maritime careers. Apply now – your adventure starts here.</p>
+      <div class="hero-actions">
+        <button class="btn-primary" onclick="scrollToJobs()">Explore Open Positions</button>
+        <button class="btn-ghost-light" onclick="scrollToJobs()">Apply Now</button>
+      </div>
+    </div>
+    <div class="scroll-cue"><span>Scroll</span><div class="scroll-dot"></div></div>
+  </section>
+
+  <div class="stats-bar">
+    <div class="stat-item"><div class="stat-num">35,000</div><div class="stat-label">Employed Candidates</div></div>
+    <div class="stat-item"><div class="stat-num">20</div><div class="stat-label">Countries</div></div>
+    <div class="stat-item"><div class="stat-num">25</div><div class="stat-label">Years in Operation</div></div>
+    <div class="stat-item"><div class="stat-num">12</div><div class="stat-label">Cruise Line Partners</div></div>
+  </div>
+
+  <div class="section" id="jobs-section">
+    <div class="section-tag">Open Positions</div>
+    <div class="section-heading">Find your <em>dream role</em></div>
+    <div class="jobs-grid" id="jobs-grid"></div>
+  </div>
+
+  <!-- HOW IT WORKS -->
+  <div class="section">
+    <div class="section-tag">How It Works</div>
+    <div class="section-heading">Three steps to <em>set sail</em></div>
+    <div class="process-row">
+      <div class="process-card"><div class="process-num">01</div><div class="process-title">Find a position</div><div class="process-body">Browse our open roles. Each listing includes requirements, responsibilities, and the cruise line partner.</div></div>
+      <div class="process-card"><div class="process-num">02</div><div class="process-title">Fill form & Pay KES 300</div><div class="process-body">Fill in your details, attach your CV, then pay the KES 300 application fee via M-Pesa STK Push.</div></div>
+      <div class="process-card"><div class="process-num">03</div><div class="process-title">We contact you</div><div class="process-body">Our recruitment team reviews your application and follows up. Final hiring by the cruise line partner.</div></div>
+    </div>
+  </div>
+
+  <!-- EVENT BANNER -->
+  <div class="event-banner" id="event-section">
+    <div class="event-text">
+      <div class="tag">🚢 Carnival Cruise Line · Live Hiring</div>
+      <h2>Nairobi, we are coming!</h2>
+      <p>Meet our hiring team in person. Bring documents, passion, and ambition. Direct path to a global maritime career. Application fee: KES 300.</p>
+    </div>
+    <div class="event-meta">
+      <div class="e-label">Contact us</div>
+      <div class="e-phone">+254 791 044 712</div>
+      <div class="e-fee">KES 300 Application Fee</div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-brand">
+      <div class="f-name">KOUZON <span>Corporation</span></div>
+      <p>Africa's leading cruise ship hiring agency. 25 years placing candidates across 20 countries.</p>
+      <div><span class="mlc">✔ MLC Certified</span></div>
+    </div>
+    <div class="footer-col">
+      <h4>Head Office</h4>
+      <p>Mirage Towers, Tower 2, M2 Unit 15A</p>
+      <a href="tel:+254791044712">+254 791 044 712</a>
+      <a href="mailto:kouzon.kenya@gmail.com">kouzon.kenya@gmail.com</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact 24/7</h4>
+      <p>Mr. Zoran Kocoski</p>
+      <a href="tel:+38970206108">+389 70 206 108</a>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Kouzon Corporation · KES 300 application fee · Final hiring by cruise lines</p>
+      <p>Bureau Veritas Certified · MLC Compliant</p>
+    </div>
+  </footer>
+</div>
+
+<!-- DETAIL PAGE -->
+<div id="page-detail" class="page">
+  <div class="detail-hero">
+    <div class="detail-hero-bg" id="detail-bg"></div>
+    <div class="detail-content">
+      <button class="detail-back" onclick="showHome()">← Back to Jobs</button>
+      <div class="detail-dept" id="detail-dept"></div>
+      <h1 class="detail-title" id="detail-title"></h1>
+      <div class="detail-company" id="detail-company"></div>
+    </div>
+  </div>
+  <div class="detail-body">
+    <div class="detail-main" id="detail-main"></div>
+    <div class="application-card">
+      <h4>Apply for this position</h4>
+      <form id="application-form" onsubmit="return false;">
+        <div class="form-row">
+          <div class="form-group"><label>First Name *</label><input type="text" id="firstname" required placeholder="John"/></div>
+          <div class="form-group"><label>Last Name *</label><input type="text" id="lastname" required placeholder="Kamau"/></div>
+        </div>
+        <div class="form-group"><label>Email *</label><input type="email" id="email" required placeholder="john@email.com"/></div>
+        <div class="form-group"><label>Phone (M‑Pesa number) *</label><input type="tel" id="phone" placeholder="07XX XXX XXX" required/></div>
+        <div class="form-group"><label>Residence / County *</label><input type="text" id="residence" placeholder="e.g. Nairobi, Kiambu" required/></div>
+        <div class="form-group"><label>Position</label><input type="text" id="position-field" readonly style="background:#f0f2f5;color:var(--muted);"/></div>
+        <div class="form-group">
+          <label>Attach CV (optional)</label>
+          <div class="upload-option" onclick="document.getElementById('cv-file').click()">
+            <i class="fas fa-paperclip"></i>
+            <span>Attach file — <span id="cv-label">No file chosen</span></span>
+          </div>
+          <input type="file" id="cv-file" accept=".pdf,.doc,.docx" class="file-input" onchange="updateFileLabel()"/>
+        </div>
+        <div class="form-group">
+          <label class="privacy-row">
+            <input type="checkbox" id="privacy" required/>
+            I agree to the privacy policy and consent to Kouzon processing my data.
+          </label>
+        </div>
+        <button type="button" class="proceed-btn" onclick="showPaymentModal()">Proceed to Pay KES 300 →</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- PAYMENT MODAL -->
+<div id="paymentModal" class="payment-modal-overlay">
+  <div class="payment-modal">
+    <button class="payment-close" onclick="closePaymentModal()">✕</button>
+
+    <div id="payment-form-area">
+      <h2>Application Fee</h2>
+      <div class="modal-sub">One-time KES 300 to submit your application via M-Pesa</div>
+
+      <div class="amount-box">
+        <div class="a-label">Application Fee</div>
+        <div class="a-num">KES 300</div>
+        <div class="a-note">One-time · Secures your application slot</div>
+      </div>
+
+      <div class="form-group"><label style="font-size:0.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:.35rem;">M-PESA NUMBER</label>
+        <div class="phone-input-group">
+          <span class="country-code">+254</span>
+          <input type="tel" class="payment-phone-input" id="payment-phone" placeholder="712 345 678" maxlength="9"/>
+        </div>
+      </div>
+
+      <div id="payment-status" class="payment-status"></div>
+      <button class="pay-btn" id="pay-btn" onclick="processPayment()">PAY KES 300 & SUBMIT →</button>
+      <button class="cancel-link" onclick="closePaymentModal()">← Back to form</button>
+    </div>
+
+    <div class="success-area" id="success-area">
+      <div class="s-icon">🎉</div>
+      <h3>Application Submitted!</h3>
+      <p>Your KES 300 payment was initiated and your application has been received. Our team will review and contact you shortly.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── NESTLINK ──
+const NESTLINK_SECRET = '2574c18e32d6fc1d49179858';
+const NESTLINK_URL    = 'https://api.nestlink.co.ke/runPrompt';
+
+function formatPhone(raw) {
+  let c = raw.replace(/\D/g,'');
+  if(c.startsWith('0')) c = '254'+c.substring(1);
+  else if(c.length===9 && c.startsWith('7')) c = '254'+c;
+  else if(c.length===12 && c.startsWith('254')){}
+  else throw new Error('Enter a valid Safaricom number (07XXXXXXXX)');
+  if(!/^2547\d{8}$/.test(c)) throw new Error('Invalid Safaricom number format');
+  return c;
+}
+
+async function sendStkPush(phone, amount, desc) {
+  const formatted = formatPhone(phone);
+  const local_id  = `KOUZON_${Date.now()}_${Math.floor(Math.random()*9999)}`;
+  const res = await fetch(NESTLINK_URL, {
+    method:'POST',
+    headers:{'Content-Type':'application/json','Api-Secret':NESTLINK_SECRET},
+    body: JSON.stringify({phone:formatted, amount, local_id, transaction_desc:desc})
+  });
+  if(!res.ok) throw new Error(res.status===403 ? '403: Invalid API secret or domain not allowed' : `HTTP ${res.status}`);
+  const data = await res.json();
+  if(!data || data.status !== true) throw new Error(data?.msg || 'STK push failed');
+  return data;
+}
+
+// ── JOBS DATA ──
+const jobs = {
+  'casino-dealer':{dept:'Casino',company:'Royal Caribbean Group',bg:'https://images.unsplash.com/photo-1511367461989-f85a21fda167?w=1400&q=80',desc:`<h3>About the Role</h3><p>Join one of the world's largest cruise companies as a Casino Dealer aboard Royal Caribbean vessels.</p><h3>Responsibilities</h3><ul><li>Deal Blackjack, Poker, and Baccarat</li><li>Operate roulette and table games</li><li>Provide top-tier guest service</li></ul><h3>Requirements</h3><ul><li>Minimum 1 year casino dealer experience</li><li>Strong English communication</li></ul>`},
+  'waiter':{dept:'Restaurant',company:'Celebrity Cruises',bg:'https://images.unsplash.com/photo-1559339352-11d035aa65de?w=1400&q=80',desc:`<h3>About the Role</h3><p>Deliver an unforgettable dining experience aboard Celebrity Cruises.</p><h3>Requirements</h3><ul><li>Minimum 1 year waiter experience</li><li>Excellent English</li><li>Professional presentation</li></ul>`},
+  'bartender':{dept:'Beverage',company:'Norwegian Cruise Line',bg:'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=1400&q=80',desc:`<h3>About the Role</h3><p>Create signature cocktails and exceptional guest experiences at sea.</p><h3>Requirements</h3><ul><li>Minimum 2 years bartending</li><li>Knowledge of spirits and cocktails</li></ul>`},
+  'wine-steward':{dept:'Beverage',company:'Norwegian Cruise Line',bg:'https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=1400&q=80',desc:`<h3>About the Role</h3><p>Guide guests through wine selections aboard Norwegian Cruise Line.</p><h3>Requirements</h3><ul><li>WSET or equivalent preferred</li><li>1+ year sommelier experience</li></ul>`},
+  'butcher':{dept:'Galley',company:'Norwegian Cruise Line',bg:'https://images.unsplash.com/photo-1615361200141-f45040f367be?w=1400&q=80',desc:`<h3>About the Role</h3><p>Prepare and portion meat and seafood for a high-volume galley.</p><h3>Requirements</h3><ul><li>2+ years butchery experience</li><li>Food safety knowledge</li></ul>`},
+  'cook':{dept:'Galley',company:'Princess Cruises',bg:'https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=1400&q=80',desc:`<h3>About the Role</h3><p>Assist in food preparation aboard Princess Cruises.</p><h3>Requirements</h3><ul><li>Culinary training or 1 year kitchen experience</li></ul>`},
+  'housekeeping':{dept:'Guest Services',company:'Carnival Cruise Line',bg:'https://images.unsplash.com/photo-1600585152220-90363fe7e115?w=1400&q=80',desc:`<h3>About the Role</h3><p>Ensure guests return to a spotless cabin every day.</p><h3>Requirements</h3><ul><li>Housekeeping experience preferred</li><li>Attention to detail</li></ul>`},
+  'cabin-steward':{dept:'Housekeeping',company:'Princess Cruises',bg:'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=1400&q=80',desc:`<h3>About the Role</h3><p>Clean and service guest cabins aboard Princess Cruises.</p><h3>Requirements</h3><ul><li>Entry level welcome — training provided</li></ul>`},
+  'security-officer':{dept:'Deck Department',company:'Carnival Cruise Line',bg:'https://images.unsplash.com/photo-1609743522471-83c84ce23e32?w=1400&q=80',desc:`<h3>About the Role</h3><p>Ensure safety and security of guests and crew.</p><h3>Requirements</h3><ul><li>Security/military background required</li><li>STCW security certificate</li></ul>`},
+  'electrician':{dept:'Engine Department',company:'Carnival Cruise Line',bg:'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=1400&q=80',desc:`<h3>About the Role</h3><p>Maintain all electrical systems onboard Carnival Cruise Line.</p><h3>Requirements</h3><ul><li>Electrical engineering certificate</li><li>2+ years experience</li></ul>`},
+  'fitter':{dept:'Engine Department',company:'Carnival Cruise Line',bg:'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1400&q=80',desc:`<h3>About the Role</h3><p>Support the engineering department in mechanical maintenance.</p><h3>Requirements</h3><ul><li>Mechanical engineering certificate</li></ul>`},
+  'sales-associate':{dept:'Shop',company:'Effy Jewelry',bg:'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1400&q=80',desc:`<h3>About the Role</h3><p>Represent Effy Jewelry as a Sales Associate aboard cruise ships.</p><h3>Requirements</h3><ul><li>1+ year luxury retail experience preferred</li></ul>`},
+  'wiper':{dept:'Engine Department',company:'Carnival Cruise Line',bg:'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1400&q=80',desc:`<h3>About the Role</h3><p>Great entry point into maritime engineering.</p><h3>Requirements</h3><ul><li>No experience required — training provided</li><li>Physical fitness and willingness to work</li></ul>`},
+  'laundry-attendant':{dept:'Housekeeping',company:'Carnival Cruise Line',bg:'https://images.unsplash.com/photo-1545173168-9f1947eebb7f?w=1400&q=80',desc:`<h3>About the Role</h3><p>Operate laundry equipment aboard Carnival Cruise Line.</p><h3>Requirements</h3><ul><li>No experience required</li></ul>`}
+};
+
+let currentJobKey = null;
+let collectedData  = {};
+
+// ── RENDER JOBS ──
+function renderJobsGrid() {
+  const grid = document.getElementById('jobs-grid');
+  grid.innerHTML = '';
+  for(const [key,job] of Object.entries(jobs)){
+    const card = document.createElement('div');
+    card.className = 'job-card';
+    card.innerHTML = `
+      <div class="job-img-wrap">
+        <img src="${job.bg.split('?')[0]}?w=400&q=80" alt="${key}" loading="lazy" onerror="this.style.background='#e8f0ff';this.style.display='block';"/>
+        <div class="job-dept-badge">${job.dept}</div>
+      </div>
+      <div class="job-info">
+        <div class="job-name">${key.replace(/-/g,' ').replace(/\b\w/g,c=>c.toUpperCase())}</div>
+        <div class="job-line">${job.company}</div>
+        <button class="btn-apply" onclick="showDetail('${key}')">Apply Now</button>
+      </div>`;
+    grid.appendChild(card);
+  }
+}
+
+// ── DETAIL ──
+function showDetail(key) {
+  const j = jobs[key]; if(!j) return;
+  currentJobKey = key;
+  document.getElementById('detail-bg').style.background = `linear-gradient(to bottom, rgba(10,22,40,0.3) 0%, rgba(10,22,40,0.7) 60%, rgba(10,22,40,1) 100%), url('${j.bg}') center/cover no-repeat`;
+  document.getElementById('detail-dept').textContent    = j.dept;
+  document.getElementById('detail-title').textContent   = key.replace(/-/g,' ').replace(/\b\w/g,c=>c.toUpperCase());
+  document.getElementById('detail-company').textContent = j.company;
+  document.getElementById('detail-main').innerHTML      = j.desc;
+  document.getElementById('position-field').value       = `${key.replace(/-/g,' ').replace(/\b\w/g,c=>c.toUpperCase())} — ${j.company}`;
+  document.getElementById('application-form').reset();
+  document.getElementById('position-field').value = `${key.replace(/-/g,' ').replace(/\b\w/g,c=>c.toUpperCase())} — ${j.company}`;
+  document.getElementById('cv-label').textContent = 'No file chosen';
+  showPage('page-detail');
+}
+
+// ── PAYMENT MODAL ──
+function showPaymentModal() {
+  const first    = document.getElementById('firstname').value.trim();
+  const last     = document.getElementById('lastname').value.trim();
+  const email    = document.getElementById('email').value.trim();
+  const phone    = document.getElementById('phone').value.trim();
+  const residence= document.getElementById('residence').value.trim();
+  const privacy  = document.getElementById('privacy').checked;
+
+  if(!first||!last||!email||!phone||!residence){ alert('Please fill all required fields.'); return; }
+  if(!privacy){ alert('Please agree to the privacy policy.'); return; }
+
+  collectedData = { first, last, email, phone, residence, position: document.getElementById('position-field').value, cvFile: document.getElementById('cv-file').files[0] };
+
+  // Pre-fill phone (strip leading 0 or 254)
+  let p = phone.replace(/\D/g,'');
+  if(p.startsWith('254')) p = p.substring(3);
+  else if(p.startsWith('0')) p = p.substring(1);
+  document.getElementById('payment-phone').value = p;
+
+  // Reset modal state
+  document.getElementById('payment-status').className = 'payment-status';
+  document.getElementById('payment-status').innerHTML  = '';
+  document.getElementById('pay-btn').disabled   = false;
+  document.getElementById('pay-btn').textContent = 'PAY KES 300 & SUBMIT →';
+  document.getElementById('payment-form-area').style.display = '';
+  document.getElementById('success-area').style.display      = 'none';
+  document.getElementById('paymentModal').classList.add('open');
+}
+
+function closePaymentModal() {
+  document.getElementById('paymentModal').classList.remove('open');
+}
+document.getElementById('paymentModal').addEventListener('click', function(e){ if(e.target===this) closePaymentModal(); });
+
+async function processPayment() {
+  const rawInput = document.getElementById('payment-phone').value.trim();
+  const phone9   = rawInput.replace(/\D/g,'');
+  if(phone9.length !== 9){ alert('Enter your 9-digit number e.g. 712345678'); return; }
+  const fullPhone = '0' + phone9;
+
+  const statusDiv = document.getElementById('payment-status');
+  const payBtn    = document.getElementById('pay-btn');
+  payBtn.disabled = true;
+  payBtn.textContent = '⏳ Sending STK...';
+  statusDiv.className = 'payment-status show pending';
+  statusDiv.textContent = 'Sending M-Pesa prompt to your phone...';
+
+  try {
+    await sendStkPush(fullPhone, 300, `Kouzon Application — ${collectedData.position || 'Job Application'}`);
+    statusDiv.className = 'payment-status show success';
+    statusDiv.textContent = '✅ STK sent! Enter your M-Pesa PIN on your phone.';
+
+    // Save to backend
+    await saveApplication();
+
+    setTimeout(()=>{
+      document.getElementById('payment-form-area').style.display = 'none';
+      document.getElementById('success-area').style.display = 'block';
+    }, 2500);
+
+  } catch(err) {
+    statusDiv.className = 'payment-status show error';
+    statusDiv.textContent = '❌ ' + err.message;
+    payBtn.disabled   = false;
+    payBtn.textContent = 'PAY KES 300 & SUBMIT →';
+  }
+}
+
+// ── SAVE TO BACKEND ──
+async function saveApplication() {
+  try {
+    const fd = new FormData();
+    fd.append('firstName', collectedData.first);
+    fd.append('lastName',  collectedData.last);
+    fd.append('email',     collectedData.email);
+    fd.append('phone',     collectedData.phone);
+    fd.append('residence', collectedData.residence);
+    fd.append('position',  collectedData.position);
+    fd.append('paymentStatus', 'stk_initiated');
+    if(collectedData.cvFile) fd.append('cvFile', collectedData.cvFile);
+    await fetch('/api/apply', { method:'POST', body: fd });
+  } catch(e) {
+    console.error('Save error:', e);
+  }
+}
+
+// ── UTILS ──
+function showPage(id){ document.querySelectorAll('.page').forEach(p=>p.classList.remove('active')); document.getElementById(id).classList.add('active'); window.scrollTo(0,0); }
+function showHome(){ showPage('page-home'); }
+function scrollToJobs(){ showHome(); setTimeout(()=>document.getElementById('jobs-section').scrollIntoView({behavior:'smooth'}),100); }
+function updateFileLabel(){ const f=document.getElementById('cv-file').files[0]; document.getElementById('cv-label').textContent = f ? f.name : 'No file chosen'; }
+
+renderJobsGrid();
+</script>
+</body>
+</html>
