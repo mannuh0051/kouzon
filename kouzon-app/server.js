@@ -96,8 +96,12 @@ app.post('/api/admin/cv', async (req, res) => {
 });
 
 // Catch-all → index
+// Catch-all → index (don't override /admin)
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  if(req.path === '/admin') {
+    res.sendFile(path.join(__dirname, 'public', 'admin.html'));
+  } else {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  }
 });
-
 app.listen(PORT, () => console.log(`Kouzon running on port ${PORT}`));
